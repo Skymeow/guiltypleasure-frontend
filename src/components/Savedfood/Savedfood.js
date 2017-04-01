@@ -6,7 +6,9 @@ import SavedFoodInfo from './SavedFoodInfo';
 
 let caloriesTotal = 0;
 let caloriesBurnedTotal = 0;
+
 let cravingCal = 650;
+
 class Savedfood extends Component {
   constructor(props) {
     super(props);
