@@ -5,7 +5,7 @@ import update from "react-addons-update";
 import SavedFoodInfo from './SavedFoodInfo';
 
 let caloriesTotal = 0;
-
+let caloriesBurnedTotal = 0;
 class Savedfood extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +21,11 @@ class Savedfood extends Component {
       height_cm: 190,
       ran_hours: 1,
       ran_miles: 3,
-      weight_kg: 60
+      weight_kg: 60,
+      yoga_min: 30,
+      walk_miles: 1,
+      walk_hours: 1,
+      spin_min: 30
     },
     burnedCalories: ''
 
@@ -73,12 +77,17 @@ class Savedfood extends Component {
         gender: this.state.burnFat.gender,
         weight_kg: parseInt(this.state.burnFat.weight_kg),
         height_cm: parseInt(this.state.burnFat.height_cm),
-        age: parseInt(this.state.burnFat.age)
+        age: parseInt(this.state.burnFat.age),
+        yoga_min: parseInt(this.state.burnFat.yoga_min),
+        walk_miles: parseInt(this.state.burnFat.walk_miles),
+        walk_hours: parseInt(this.state.burnFat.walk_hours),
+        spin_min: parseInt(this.state.burnFat.spin_min)
       })
     })
      .then((results) => {
       results.json().then((data) => {
-        this.setState({burnedCalories: data.exercises[0].nf_calories})
+        caloriesBurnedTotal = data.exercises[0].nf_calories+data.exercises[1].nf_calories+data.exercises[2].nf_calories+data.exercises[3].nf_calories
+        this.setState({burnedCalories: caloriesBurnedTotal})
         console.log("THIS IS searchBurnedCarlories",data)
       })
       .then(()=>{
@@ -127,6 +136,26 @@ class Savedfood extends Component {
        name="weight_kg"
        onChange={this.handleChange.bind(this)}
        placeholder="type in weight"
+       />
+       <input type="text"
+       name="yoga_min"
+       onChange={this.handleChange.bind(this)}
+       placeholder="type in yoga min"
+       />
+       <input type="text"
+       name="walk_miles"
+       onChange={this.handleChange.bind(this)}
+       placeholder="type in walk mile"
+       />
+       <input type="text"
+       name="walk_hours"
+       onChange={this.handleChange.bind(this)}
+       placeholder="type in walk hour"
+       />
+       <input type="text"
+       name="spin_min"
+       onChange={this.handleChange.bind(this)}
+       placeholder="type in spin min"
        />
        <input type="submit" value="Search calories" />
       </form>
