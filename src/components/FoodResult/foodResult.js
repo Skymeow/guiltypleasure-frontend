@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+import {Link,browserHistory} from 'react-router';
 import FoodInfo from './foodInfo';
 
 class FoodResult extends Component {
@@ -29,7 +29,7 @@ class FoodResult extends Component {
     })
     .then((results) => {
       results.json().then((data) => {
-
+        console.log("THIS IS FOODRESULTS DATA",data)
         this.setState({food: data})
 
       })
@@ -42,8 +42,7 @@ class FoodResult extends Component {
 
 
   handleSubmit(food) {
-  // event.preventDefault();
-    console.log(food);
+    console.log("THIS IS HANDLESUBMIT",food);
 
     fetch('http://localhost:8000/saved_food', {
       method: 'POST',
@@ -51,7 +50,8 @@ class FoodResult extends Component {
         food: {
           name: `${food.food_name}`,
           picture: `${food.photo.thumb}`,
-          calories: `${food.nf_calories}`
+          calories: `${food.nf_calories}`,
+          // food_id: parseInt(`${food.id}`)
         }
       }),
       headers: {
@@ -60,70 +60,62 @@ class FoodResult extends Component {
     })
     .then(() => {
       console.log("THIS IS handleSubmit")
-      this.props.router.push('/users/dashboard');
+      // this.props.router.push('/users/dashboard');
+      // browserHistory.push("/users/dashboard");
     })
     .catch((err)=>{
       console.log('Error:', err);
     });
   }
-// handleSubmit(event) {
-//   event.preventDefault();
-//   if(window.localStorage.getItem('loggedIn')) {
-//     fetch('http://localhost:8000/api/saved_bar', {
-//       method: 'POST',
-//       body: JSON.stringify({
-//         food: {
-//           name: `${this.state.food.branded.food_name}`,
-//           picture:`${this.state.food.photo.thumb}`,
-//           calories:`${this.state.food.nf_calories}`
-//         }
-//       }),
-//       headers: {
-//         'Content-Type': 'application/json'
-//       }
-//     })
-//     .then(() => {
-//       this.props.router.push('/users/dashboard');
-//     })
-//     .catch((err)=>{
-//       console.log('Error:', err);
-//     });
-//   } else {
-//     this.props.router.push('/login');
-//   }
-
-// }
 
 render() {
   return(
-    <div>
-    <form
-    onSubmit={this.searchTitle.bind(this)}
-    >
-    <input type="text"
-    value={this.state.searchTerm}
-    onChange={e=>this.setState({searchTerm:e.target.value})}
-    placeholder="Search your craving food"
-    />
-    <input type="submit" value="Search" />
-    </form>
-
-    {this.state.food.branded.map((food)=>{
-      return(
-       <div key={food.nix_item_id}>
-       <FoodInfo
-       name={food.food_name}
-       picture={food.photo.thumb}
-       calories={food.nf_calories}
-       />
-      <Link to="/users/dashboard">
-       <button onClick={this.handleSubmit.bind(this, food)}>Add to Favorites</button>
+  <div className="page1-container">
+    <div className="mask"></div>
+    <div className="navbar">
+      <div className="logo1"></div>
+      <div className="logo2"></div>
+      <Link to="/users/dashboard" className="link_nav">
+          Checkout Your cravinglist
       </Link>
-       </div>
-
-       )
-    })}
     </div>
+    <div className="page1-content">
+      <div className="col-sm-9 col-md-6 col-lg-8">
+        <form
+          className="navbar-form col-lg-8" role="search"
+          onSubmit={this.searchTitle.bind(this)}
+         >
+            <div className="input-group col-lg-8">
+               <input type="text"
+               className="form-control"
+               name="srch-term"
+               id="srch-term"
+               value={this.state.searchTerm}
+               onChange={e=>this.setState({searchTerm:e.target.value})}
+               placeholder="Search your craving food"
+                />
+                 <div className="input-group-btn">
+                   <button id="search-button" className= "btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+                 </div>
+            </div>
+        </form>
+      </div>
+       <div className="food-list">
+        {this.state.food.branded.map((food)=>{
+        return(
+         <div className="food-map" key={food.nix_item_id}>
+         <FoodInfo
+         name={food.food_name}
+         picture={food.photo.thumb}
+         calories={food.nf_calories}
+         />
+         <button className="outline-btn" onClick={this.handleSubmit.bind(this, food)}>Add to Favorites</button>
+         </div>
+         )
+        })}
+     </div>
+    </div>
+  </div>
     )
 }
 

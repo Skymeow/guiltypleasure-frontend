@@ -7,7 +7,9 @@ function FoodInfo(props) {
       <h2>{`${props.name}`}</h2>
       <div className="food-info">
         <ul>
-          <li><img src={`${props.picture}`} /></li>
+         <div className="img-map">
+          <li><img className="img-item" src={`${props.picture}`} /></li>
+         </div>
           <li>calories: {`${props.calories}`}</li>
         </ul>
       </div>

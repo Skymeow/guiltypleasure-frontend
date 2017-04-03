@@ -1,18 +1,119 @@
+h2 {
+  font-family: 'Ubuntu', sans-serif;
+  color: #28AD92;
+}
+
+.page1-container {
+  z-index:1;
+  min-height: 100vh;
+}
+
+#srch-term {
+  width: 270px ;
+}
+
+#search-button {
+  width: 30px;
+}
+
+.input-group.col-lg-8 {
+    width: 300px;
+}
+.mask {
+  position: fixed;
+  background-image: url('http://media.istockphoto.com/photos/italian-food-background-on-stone-table-copy-space-top-view-picture-id517488868?k=6&m=517488868&s=170667a&w=0&h=u7Bm-JjM4ehFUTBazMqBPhrJrVvCOFwHmeDVf6GCfpw=');
+  background-size: cover;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: .5;
+  /*background-color: pink;*/
+}
+
+.page1-content {
+  margin: 0 auto;
+  z-index: 2;
+
+}
+
+ol, ul{
+  padding-left: 0px;
+}
+
+ul li {
+  display: inline-block;
+  color: #E04040;
+  font-family: 'Bree Serif', serif;
+  font-size: 20px;
+}
+
+.food-list {
+  z-index: 2;
+  /*margin: 0 auto;*/
+  /*box-sizing: border-box;*/
+  border: rgba(255,255,255,0) 2px solid;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.col-sm-9 col-md-6 col-lg-8 {
+   width: 100px !important;
+}
+
+.img-map {
+   margin: 0 auto;
+   width: 250px;
+   height: 250px;
+   background-color: white;
+}
+
+.img-item {
+    padding-top: 20px;
+    margin: 0 auto;
+    width: 230px;
+    height: 230px;
+}
+
+.saved-background {
+  position: fixed;
+  background-image: url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSOly4CF5CHcoTPNUSyp4-7PI9QCAVYQG6XGVDgrofJGGNFb0nYYQ');
+  background-size: cover;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: .7;
+}
 .savedfood-container {
-  z-index: -1;
+  text-align: left;
+  border-bottom: rgba(255,255,255,.10) 1px solid;
+  z-index: 2;
+  min-height: 100vh;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   width: 100%;
+  justify-content: space-around;
 }
 
 .craving_list {
+  z-index: 2;
   flex:1;
-  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  left: 45%;
 }
 
 .exercise {
-  flex:1;
-  width: 50%;
+  position: absolute;
+  left: 5%;
+  z-index: 2;
+  flex: 1;
+  margin-left: 20px;
 }
 
 .filter {
@@ -20,21 +121,22 @@
   width: 100%;
   height: 100%;
   background-color: #F7F7EF;
-  z-index: 3;
+  z-index: 4;
   display: flex;
 }
+
 
 .stop-filter {
   position: fixed;
   width: 100%;
   height: 100%;
   background-color: #F7484E;
-  z-index: 3;
+  z-index: 4;
 
 }
 
 .congrats {
-   padding-top: 30%;
+   padding-top: 20%;
    color: #E84B4B;
    text-align: center;
 }
@@ -52,6 +154,83 @@
 .warn {
   text-align: center;
   padding-top: 40%;
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+  height: 75px;
+  align-items: center;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.logo1 {
+  position: absolute;
+  background-image: url('../assets/guilty.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20%;
+  height: 45%;
+  top: 9%;
+  left: 4%;
+}
+
+.logo2 {
+  position: absolute;
+  background-image: url('../assets/pleasure.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 40%;
+  height: 55%;
+  left: 12%;
+  top: 37%;
+}
+
+.link_nav {
+  position: absolute;
+  left: 80%;
+  display: inline-block;
+  font-size: 16px;
+  color: #FF4380;
+  font-family: 'Arvo', serif;
+}
+
+.page1-content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.control-label {
+    padding-right: 20%;
+}
+.outline-btn {
+  z-index: 2;
+  margin: 0 auto;
+  text-align: center;
+  color: #FFF;
+  background-color: orange;
+  height: 25px;
+  width: 200px;
+  padding: 0 20px;
+  line-height: 25px;
+  border: #FFF 1px solid;
+  border-radius: 50px;
+  transition: background-color 0.25s, transform 0.5s;
+  -webkit-transition: background-color 0.25s, transform 0.5s;
+  cursor: pointer;
+}
+
+.see_if_can_eat {
+  z-index: 3;
+  width: 20px;
+  height: 20px;
+  align-self: center;
+  width: 204px;
+  height: 30px;
 }
 
 
