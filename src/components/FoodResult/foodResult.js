@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
-import FoodInfo from './foodInfo.js';
+import FoodInfo from './foodinfo.js';
 import update from 'react-addons-update'
 
 class FoodResult extends Component {
@@ -31,7 +31,7 @@ class FoodResult extends Component {
 
   searchTitle(event) {
     event.preventDefault();
-    fetch(`http://localhost:8000/api/`, {
+    fetch(`https://guiltypleasurefoodie.herokuapp.com/api/`, {
       method: 'POST',
       body: JSON.stringify({
 
@@ -60,7 +60,7 @@ class FoodResult extends Component {
     console.log("THIS IS HANDLESUBMIT",this.state.amount.amount);
 
 
-    fetch('http://localhost:8000/saved_food', {
+    fetch('https://guiltypleasurefoodie.herokuapp.com/saved_food', {
       method: 'POST',
       body: JSON.stringify({
         food: {

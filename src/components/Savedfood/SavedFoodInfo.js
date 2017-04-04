@@ -16,9 +16,9 @@ class SavedFoodInfo extends Component {
 
 
 
-  handleDelete(calories,amount) {
+  handleDelete() {
     // this.state.calories? this.props.calories?
-    fetch(`http://localhost:8000/saved_food/${this.props.food_id}`, {
+    fetch(`https://guiltypleasurefoodie.herokuapp.com/saved_food/${this.props.food_id}`, {
       method: 'DELETE'
     })
     .then(() => {

@@ -70,7 +70,7 @@ class Savedfood extends Component {
 
   componentDidMount() {
     // console.log("THIS IS SAVEDFOOD",data)
-    fetch('http://localhost:8000/saved_food', {
+    fetch('https://guiltypleasurefoodie.herokuapp.com/saved_food', {
       method: 'GET'
     })
     .then((results) => {
@@ -105,7 +105,7 @@ class Savedfood extends Component {
   }
   searchBurnedCarlories(event) {
     event.preventDefault();
-    fetch('http://localhost:8000/api/calories' ,{
+    fetch('https://guiltypleasurefoodie.herokuapp.com/api/calories' ,{
       method: 'POST',
       headers: {
       "Content-Type": "application/json",
