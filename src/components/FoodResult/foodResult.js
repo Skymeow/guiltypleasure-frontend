@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link,browserHistory} from 'react-router';
 import FoodInfo from './foodInfo';
+import update from 'react-addons-update'
 
 class FoodResult extends Component {
   constructor(props) {
@@ -10,8 +11,22 @@ class FoodResult extends Component {
       searchTerm:'',
       food: {
         branded: []
+      },
+      amount: {
+        amount: 1
       }
     }
+  }
+
+  handleAdd(event) {
+     let newState = update(this.state,{
+        amount: {
+          $merge: {
+            [event.target.name]: event.target.value
+          }
+        }
+     })
+     this.setState(newState);
   }
 
   searchTitle(event) {
@@ -42,7 +57,8 @@ class FoodResult extends Component {
 
 
   handleSubmit(food) {
-    console.log("THIS IS HANDLESUBMIT",food);
+    console.log("THIS IS HANDLESUBMIT",this.state.amount.amount);
+
 
     fetch('http://localhost:8000/saved_food', {
       method: 'POST',
@@ -51,8 +67,10 @@ class FoodResult extends Component {
           name: `${food.food_name}`,
           picture: `${food.photo.thumb}`,
           calories: `${food.nf_calories}`,
-          // food_id: parseInt(`${food.id}`)
-        }
+          serving_qty: parseInt(`${food.serving_qty}`),
+          serving_unit: `${food.serving_unit}`
+        },
+        amount: parseInt(`${this.state.amount.amount}`)
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -104,12 +122,22 @@ render() {
         {this.state.food.branded.map((food)=>{
         return(
          <div className="food-map" key={food.nix_item_id}>
+         {console.log("******************",food.serving_qty)}
          <FoodInfo
          name={food.food_name}
          picture={food.photo.thumb}
          calories={food.nf_calories}
+         serving_qty={food.serving_qty}
+         serving_unit={food.serving_unit}
          />
-         <button className="outline-btn" onClick={this.handleSubmit.bind(this, food)}>Add to Favorites</button>
+          <div id="amount-input">
+             <input type="text"
+             name="amount"
+             onChange={this.handleAdd.bind(this)}
+             placeholder="type the amount"
+             />
+          </div>
+         <button id="add-to-fav" onClick={this.handleSubmit.bind(this, food)}>Add to Favorites</button>
          </div>
          )
         })}

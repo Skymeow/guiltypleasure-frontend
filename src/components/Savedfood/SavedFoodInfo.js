@@ -14,12 +14,14 @@ class SavedFoodInfo extends Component {
     };
   }
 
-  handleDelete() {
+  handleDelete(calories,amount) {
+    // this.state.calories? this.props.calories?
     fetch(`http://localhost:8000/saved_food/${this.props.food_id}`, {
       method: 'DELETE'
     })
     .then(() => {
       this.setState({ listIsVisible: {display: 'none'}});
+      this.props.removeCalories(this.props.calories * this.props.amount)
       })
     .catch((err) => {
       console.log('Error:', err);
@@ -35,6 +37,8 @@ class SavedFoodInfo extends Component {
              <li><img className="img-item" src={`${this.props.picture}`} /></li>
            </div>
            <li>Calories: {`${this.props.calories}`}</li>
+           <li>Serving size: {`${this.props.serving_qty}`}/{`${this.props.serving_unit}`}</li>
+           <li>Amount: {`${this.props.amount}`}</li>
          </ul>
           <Link to="/users/dashboard">
            <button className="delete" onClick={this.handleDelete.bind(this)}>Remove from list</button>

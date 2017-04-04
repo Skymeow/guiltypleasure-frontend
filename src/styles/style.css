@@ -3,6 +3,56 @@ h2 {
   color: #28AD92;
 }
 
+h4 {
+  font-family: 'Lobster', cursive;
+}
+
+.fa-4x {
+  z-index: 2;
+  position: absolute;
+  left: 27%;
+  text-align: center;
+  color: #FF3C72;
+  cursor: pointer;
+}
+
+.burned-results p {
+  font-family: 'Press Start 2P', cursive;
+  color: #FF3C72;
+  width: 15px;
+  height: 7px;
+  position: absolute;
+  top: 413px;
+  left: 17%;
+  z-index: 3;
+  animation: zoom 2s ease-in-out infinite alternate;
+  -webkit-animation: zoom 2s ease-in-out infinite alternate;
+}
+
+.crave-results p {
+  font-family: 'Press Start 2P', cursive;
+  color: #FFE52B;
+  width: 15px;
+  height: 7px;
+  position: absolute;
+  top: 413px;
+  left: 49%;
+  z-index: 3;
+  animation: zoom 2s ease-in-out infinite alternate;
+  -webkit-animation: zoom 2s ease-in-out infinite alternate;
+}
+
+@keyframes zoom{
+    0% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+
+    100% {
+       transform: scale(4.5);
+        -webkit-transform: scale(4.5);
+    }
+}
 .page1-container {
   z-index:1;
   min-height: 100vh;
@@ -16,9 +66,37 @@ h2 {
   width: 30px;
 }
 
+#add-to-fav {
+  margin-top: 10px;
+  width: 100px;
+  align-self: center;
+  color: #FFF;
+  background-color: orange;
+  border: #FFF 1px solid;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+#crave-button {
+  margin-top: 10px;
+  width: 250px;
+  height: 30px;
+  align-self: center;
+  color: #FFF;
+  background-color: #38D3A7;
+  border: #FFF 1px solid;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.burn-button {
+  margin-left: -40px;
+}
+
 .input-group.col-lg-8 {
     width: 300px;
 }
+
 .mask {
   position: fixed;
   background-image: url('http://media.istockphoto.com/photos/italian-food-background-on-stone-table-copy-space-top-view-picture-id517488868?k=6&m=517488868&s=170667a&w=0&h=u7Bm-JjM4ehFUTBazMqBPhrJrVvCOFwHmeDVf6GCfpw=');
@@ -41,21 +119,24 @@ ol, ul{
 }
 
 ul li {
-  display: inline-block;
+  display: block;
   color: #E04040;
   font-family: 'Bree Serif', serif;
   font-size: 20px;
 }
 
+
 .food-list {
   z-index: 2;
-  /*margin: 0 auto;*/
-  /*box-sizing: border-box;*/
-  border: rgba(255,255,255,0) 2px solid;
+  text-align: center;
+}
+
+.food-map {
   text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .col-sm-9 col-md-6 col-lg-8 {
@@ -153,7 +234,7 @@ ul li {
 
 .warn {
   text-align: center;
-  padding-top: 40%;
+  padding-top: 250px;
 }
 
 .navbar {
@@ -224,10 +305,28 @@ ul li {
   cursor: pointer;
 }
 
+.delete {
+  z-index: 2;
+  margin: 0 auto;
+  text-align: center;
+  color: #FFF;
+  height: 25px;
+  width: 200px;
+  padding: 0 20px;
+  line-height: 25px;
+  border: #FFF 1px solid;
+  border-radius: 50px;
+  transition: background-color 0.25s, transform 0.5s;
+  -webkit-transition: background-color 0.25s, transform 0.5s;
+  cursor: pointer;
+  background-color: #FF685B;
+}
+
 .see_if_can_eat {
   z-index: 3;
-  width: 20px;
-  height: 20px;
+  position: absolute;
+  left:35%;
+  top: 250px;
   align-self: center;
   width: 204px;
   height: 30px;

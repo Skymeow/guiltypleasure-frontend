@@ -4,6 +4,7 @@ import {Route, Router, browserHistory} from "react-router";
 
 import "./styles/normalize.css";
 import "./styles/style.css";
+import "./vendors/font-awesome/css/font-awesome.css";
 
 import FoodResult from "./components/FoodResult/foodResult";
 import Savedfood from "./components/Savedfood/Savedfood";

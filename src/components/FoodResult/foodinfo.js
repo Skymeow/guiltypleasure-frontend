@@ -11,6 +11,8 @@ function FoodInfo(props) {
           <li><img className="img-item" src={`${props.picture}`} /></li>
          </div>
           <li>calories: {`${props.calories}`}</li>
+          <li>Serving size: {`${props.serving_qty}`}/{`${props.serving_unit}`}</li>
+
         </ul>
       </div>
     </div>

@@ -19,7 +19,10 @@ class Savedfood extends Component {
         calories: 100,
         id: 0,
         name: 'Burger',
-        picture: 'png'
+        picture: 'png',
+        serving_qty: 1,
+        serving_unit:'cup',
+        amount: 1
        }
       ],
     burnFat: {
@@ -53,7 +56,20 @@ class Savedfood extends Component {
 
     }
   }
-  // when does componentDidMount happen?? i need to push the get to savedfood page?s
+
+
+ removeCalories(lessCalories) {
+  // child file gonna pass on the value to lessCalories
+  console.log('inside removeCalories', lessCalories)
+  let tempCal = this.state.caloriesTotal;
+  this.setState({
+    caloriesTotal: tempCal - lessCalories
+  }, () => {
+    console.log(this.state)
+  })
+ }
+
+
 
   componentDidMount() {
     // console.log("THIS IS SAVEDFOOD",data)
@@ -64,8 +80,8 @@ class Savedfood extends Component {
       results.json().then((data) => {
         // console.log("THIS IS SAVEDFOOD",data.data)
         data.data.map((food) => {
-          // console.log("FOOD IN DIDMOUNT", food)
-          craveListCal += food.calories
+          console.log("FOOD IN DIDMOUNT", food.amount)
+          craveListCal += food.calories*food.amount
         })
         this.setState({
           food: data.data,
@@ -126,13 +142,27 @@ class Savedfood extends Component {
   }
 
   calculateFoodCalories(event){
-     this.setState({ isVisible: {display: 'block'} });
-     this.setState({finalResultButtonShow: true});
+     let appearOrder = setTimeout(function() {
+      this.setState({
+        isVisible: {display: 'none'},
+        finalResultButtonShow: true
+      })
+    }.bind(this), 8000);
+    this.setState({ isVisible: {display: 'block'} }, appearOrder)
   }
 
   calculateBurnCalories(event){
-     this.setState({ burnIsVisible: {display: 'block'} })
+    let disappear = setTimeout(function() {
+      this.setState({
+        burnIsVisible: {display: 'none'}
+      })
+    }.bind(this), 8000);
+
+    this.setState({ burnIsVisible: {display: 'block'} }, disappear)
   }
+
+
+
   // compare the craving list cal and burnedCal
   compareCalories(event){
     if (this.state.caloriesTotal < this.state.burnedCalories) {
@@ -158,6 +188,9 @@ class Savedfood extends Component {
     <div className="filter" style={this.state.modalShow}>
       <h1 className="congrats">Congrats!</h1><h1 className="enjoy">Enjoy</h1><h1 className="craving">your cravings</h1>
     </div>
+    <div className= "burned-results" style={this.state.burnIsVisible} >
+       <p>{this.state.burnedCalories}</p>
+      </div>
       <div className="exercise">
         <h2>Exercise</h2>
         <form className="form-horizontal"
@@ -196,6 +229,7 @@ class Savedfood extends Component {
              />
           </div>
         </div>
+
         <div className="form-group">
           <label className="control-label col-sm-2" for="ran_hours">ran_hours:</label>
            <div className="col-sm-10">
@@ -275,22 +309,22 @@ class Savedfood extends Component {
         </div>
          <div className="form-group">
            <div className="col-sm-offset-2 col-sm-10">
-             <button id="burnButton" className="btn btn-default" type="submit">Search calories</button>
+             <button id="crave-button" className="burn-button" type="submit" onClick={this.calculateBurnCalories.bind(this)}>Search calories</button>
            </div>
          </div>
       </form>
-      <div className= "burned-results" style={this.state.burnIsVisible} >
-       <h2>Calories Burned:</h2>
-       <h3>{this.state.burnedCalories}</h3>
-      </div>
+
     </div>
     <div className="see_if_can_eat" style={this.state.finalResultButtonShow ? {display: "block"} : {display: "none"}}>
-      <button  className="outline-btn" onClick={this.compareCalories.bind(this)}>
-      find out if can eat
-      </button>
+      <i className="fa fa-bomb fa-4x" aria-hidden="true" onClick={this.compareCalories.bind(this)}>
+      <h4>Can I?</h4>
+      </i>
     </div>
     <div className="craving_list" style={this.state.listIsVisible}>
      <h2>Your Craving food list</h2>
+     <div className="crave-results" style={this.state.isVisible}>
+          <p>{this.state.caloriesTotal}</p>
+      </div>
      {this.state.food.map((food) => {
       // caloriesTotal += food.calories;
       return(
@@ -301,17 +335,19 @@ class Savedfood extends Component {
        picture={food.picture}
        calories={food.calories}
        food_id={food.id}
+       serving_qty={food.serving_qty}
+       serving_unit={food.serving_unit}
+       amount={food.amount}
+       removeCalories={this.removeCalories.bind(this)}
        />
        </div>
       </div>
       )
       })}
-       <button  id="craveButton" className="outline-btn" onClick={this.calculateFoodCalories.bind(this)}>
+       <button  id="crave-button" onClick={this.calculateFoodCalories.bind(this)}>
         calories?
        </button>
-        <div style={this.state.isVisible}>
-          <h3>{this.state.caloriesTotal}</h3>
-        </div>
+
     </div>
 
   </div>
