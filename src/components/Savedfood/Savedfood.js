@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {browserHistory,Link} from 'react-router';
+import {Link} from 'react-router';
 import update from "react-addons-update";
 
 import SavedFoodInfo from './SavedFoodInfo';
@@ -138,7 +138,7 @@ class Savedfood extends Component {
     })
   }
 
-  calculateFoodCalories(event){
+  calculateFoodCalories(){
      let appearOrder = setTimeout(function() {
       this.setState({
         isVisible: {display: 'none'},
@@ -148,7 +148,7 @@ class Savedfood extends Component {
     this.setState({ isVisible: {display: 'block'} }, appearOrder)
   }
 
-  calculateBurnCalories(event){
+  calculateBurnCalories(){
     let disappear = setTimeout(function() {
       this.setState({
         burnIsVisible: {display: 'none'}
@@ -159,7 +159,7 @@ class Savedfood extends Component {
   }
 
   // compare the craving list cal and burnedCal
-  compareCalories(event){
+  compareCalories(){
     if (this.state.caloriesTotal < this.state.burnedCalories) {
       this.setState({ modalShow: {display: 'block'} })
     } else {

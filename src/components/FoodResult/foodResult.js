@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Link,browserHistory} from 'react-router';
-import FoodInfo from './foodInfo';
+import {Link} from 'react-router';
+import FoodInfo from './foodInfo.js';
 import update from 'react-addons-update'
 
 class FoodResult extends Component {
