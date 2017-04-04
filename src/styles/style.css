@@ -16,6 +16,16 @@ h4 {
   cursor: pointer;
 }
 
+.fa-2x {
+  z-index: 2;
+  position: absolute;
+  left: 15px;
+  top:10px;
+  text-align: center;
+  color: #FF3C72;
+  cursor: pointer;
+}
+
 .burned-results p {
   font-family: 'Press Start 2P', cursive;
   color: #FF3C72;

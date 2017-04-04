@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
-import {browserHistory} from 'react-router';
+import {browserHistory,Link} from 'react-router';
 import update from "react-addons-update";
 
 import SavedFoodInfo from './SavedFoodInfo';
 
 let craveListCal = 0;
 let caloriesBurnedTotal = 0;
-// let burnButton = document.getElementsByIdName("burnButton");
-// let craveButton = document.getElementsByIdName("craveButton");
-
 
 class Savedfood extends Component {
   constructor(props) {
@@ -161,8 +158,6 @@ class Savedfood extends Component {
     this.setState({ burnIsVisible: {display: 'block'} }, disappear)
   }
 
-
-
   // compare the craving list cal and burnedCal
   compareCalories(event){
     if (this.state.caloriesTotal < this.state.burnedCalories) {
@@ -171,12 +166,6 @@ class Savedfood extends Component {
       this.setState({ modalStop: {display: 'block'} });
     }
   }
-
-   // let addAnimation(()=>{
-   //  let animate =  document.getElementsByClassName("warn")
-   //  animate.className += "animated bounceOutLeft"
-   // })
-
 
   render() {
    return(
@@ -190,7 +179,11 @@ class Savedfood extends Component {
     </div>
     <div className= "burned-results" style={this.state.burnIsVisible} >
        <p>{this.state.burnedCalories}</p>
-      </div>
+    </div>
+    <Link to="/cravinglist">
+      <i className="fa fa-hand-o-left fa-2x" aria-hidden="true">
+      </i>
+    </Link>
       <div className="exercise">
         <h2>Exercise</h2>
         <form className="form-horizontal"

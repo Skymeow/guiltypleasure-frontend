@@ -14,6 +14,8 @@ class SavedFoodInfo extends Component {
     };
   }
 
+
+
   handleDelete(calories,amount) {
     // this.state.calories? this.props.calories?
     fetch(`http://localhost:8000/saved_food/${this.props.food_id}`, {
