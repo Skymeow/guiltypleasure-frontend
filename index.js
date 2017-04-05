@@ -4,8 +4,11 @@ const app = express();
 app.use(express.static(__dirname + "/dist"));
 
 app.get("/", (req, res) => {
-  console.log('hi')
-    res.sendFile(__dirname + "/dist/index.html");
+  res.sendFile(__dirname + "./dist/index.html");
 });
 
-app.listen(process.env.PORT || 3000);
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log('Server listening on ', PORT)
+});
