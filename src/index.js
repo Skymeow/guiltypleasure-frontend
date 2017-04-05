@@ -8,14 +8,12 @@ import "./vendors/font-awesome/css/font-awesome.css";
 
 import FoodResult from "./components/FoodResult/foodResult";
 import Savedfood from "./components/Savedfood/Savedfood";
-// import SignUp from "./components/SignUp/SignUp";
-// import Login from "./components/Login/Login";
+
 
 ReactDom.render(
   <Router history={browserHistory}>
     <Route path="/cravinglist" component={FoodResult} />
     <Route path="/users/dashboard" component={Savedfood} />
-
   </Router>
   ,document.getElementById("app")
 );
