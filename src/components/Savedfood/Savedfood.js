@@ -180,7 +180,7 @@ class Savedfood extends Component {
     <div className= "burned-results" style={this.state.burnIsVisible} >
        <p>{this.state.burnedCalories}</p>
     </div>
-    <Link to="/cravinglist">
+    <Link to="/">
       <i className="fa fa-hand-o-left fa-2x" aria-hidden="true">
       </i>
     </Link>

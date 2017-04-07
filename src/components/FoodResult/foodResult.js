@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 import FoodInfo from './foodinfo.js';
-import update from 'react-addons-update'
+import update from 'react-addons-update';
 
 class FoodResult extends Component {
   constructor(props) {

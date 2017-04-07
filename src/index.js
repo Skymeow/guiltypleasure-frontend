@@ -12,7 +12,7 @@ import Savedfood from "./components/Savedfood/Savedfood";
 
 ReactDom.render(
   <Router history={browserHistory}>
-    <Route path="/cravinglist" component={FoodResult} />
+    <Route path="/" component={FoodResult} />
     <Route path="/users/dashboard" component={Savedfood} />
   </Router>
   ,document.getElementById("app")
