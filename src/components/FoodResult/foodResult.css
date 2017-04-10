@@ -1,0 +1,345 @@
+h2 {
+  font-family: 'Ubuntu', sans-serif;
+  color: #28AD92;
+}
+
+h4 {
+  font-family: 'Lobster', cursive;
+}
+
+.fa-4x {
+  z-index: 2;
+  position: absolute;
+  left: 27%;
+  text-align: center;
+  color: #FF3C72;
+  cursor: pointer;
+}
+
+.fa-2x {
+  z-index: 2;
+  position: absolute;
+  left: 15px;
+  top:10px;
+  text-align: center;
+  color: #FF3C72;
+  cursor: pointer;
+}
+
+.burned-results p {
+  font-family: 'Press Start 2P', cursive;
+  color: #FF3C72;
+  width: 15px;
+  height: 7px;
+  position: absolute;
+  top: 413px;
+  left: 17%;
+  z-index: 3;
+  animation: zoom 2s ease-in-out infinite alternate;
+  -webkit-animation: zoom 2s ease-in-out infinite alternate;
+}
+
+.crave-results p {
+  font-family: 'Press Start 2P', cursive;
+  color: #FFE52B;
+  width: 15px;
+  height: 7px;
+  position: absolute;
+  top: 413px;
+  left: 49%;
+  z-index: 3;
+  animation: zoom 2s ease-in-out infinite alternate;
+  -webkit-animation: zoom 2s ease-in-out infinite alternate;
+}
+
+@keyframes zoom{
+    0% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+
+    100% {
+       transform: scale(4.5);
+        -webkit-transform: scale(4.5);
+    }
+}
+.page1-container {
+  z-index:1;
+  min-height: 100vh;
+}
+
+#srch-term {
+  width: 270px ;
+}
+
+#search-button {
+  width: 30px;
+}
+
+#add-to-fav {
+  margin-top: 10px;
+  width: 100px;
+  align-self: center;
+  color: #FFF;
+  background-color: orange;
+  border: #FFF 1px solid;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+#crave-button {
+  margin-top: 10px;
+  width: 250px;
+  height: 30px;
+  align-self: center;
+  color: #FFF;
+  background-color: #38D3A7;
+  border: #FFF 1px solid;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.burn-button {
+  margin-left: -40px;
+}
+
+.input-group.col-lg-8 {
+    width: 300px;
+}
+
+.mask {
+  position: fixed;
+  background-image: url('https://media.istockphoto.com/photos/italian-food-background-on-stone-table-copy-space-top-view-picture-id517488868?k=6&m=517488868&s=170667a&w=0&h=u7Bm-JjM4ehFUTBazMqBPhrJrVvCOFwHmeDVf6GCfpw=');
+  background-size: cover;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: .5;
+  /*background-color: pink;*/
+}
+
+.page1-content {
+  margin: 0 auto;
+  z-index: 2;
+
+}
+
+ol, ul{
+  padding-left: 0px;
+}
+
+ul li {
+  display: block;
+  color: #E04040;
+  font-family: 'Bree Serif', serif;
+  font-size: 20px;
+}
+
+
+.food-list {
+  z-index: 2;
+  text-align: center;
+}
+
+.food-map {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.col-sm-9 col-md-6 col-lg-8 {
+   width: 100px !important;
+}
+
+.img-map {
+   margin: 0 auto;
+   width: 250px;
+   height: 250px;
+   background-color: white;
+}
+
+.img-item {
+    padding-top: 20px;
+    margin: 0 auto;
+    width: 230px;
+    height: 230px;
+}
+
+.saved-background {
+  position: fixed;
+  background-image: url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSOly4CF5CHcoTPNUSyp4-7PI9QCAVYQG6XGVDgrofJGGNFb0nYYQ');
+  background-size: cover;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: .7;
+}
+.savedfood-container {
+  text-align: left;
+  border-bottom: rgba(255,255,255,.10) 1px solid;
+  z-index: 2;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.craving_list {
+  z-index: 2;
+  flex:1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  left: 45%;
+}
+
+.exercise {
+  position: absolute;
+  left: 5%;
+  z-index: 2;
+  flex: 1;
+  margin-left: 20px;
+}
+
+.filter {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #F7F7EF;
+  z-index: 4;
+  display: flex;
+}
+
+
+.stop-filter {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #F7484E;
+  z-index: 4;
+
+}
+
+.congrats {
+   padding-top: 20%;
+   color: #E84B4B;
+   text-align: center;
+}
+
+.enjoy {
+  color: #32ADC0;
+  text-align: center;
+}
+
+.craving {
+  color: #FAC601;
+  text-align: center;
+}
+
+.warn {
+  text-align: center;
+  padding-top: 250px;
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+  height: 75px;
+  align-items: center;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.logo1 {
+  position: absolute;
+  background-image: url('../assets/guilty.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20%;
+  height: 45%;
+  top: 9%;
+  left: 4%;
+}
+
+.logo2 {
+  position: absolute;
+  background-image: url('../assets/pleasure.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 40%;
+  height: 55%;
+  left: 12%;
+  top: 37%;
+}
+
+.link_nav {
+  position: absolute;
+  left: 80%;
+  display: inline-block;
+  font-size: 16px;
+  color: #FF4380;
+  font-family: 'Arvo', serif;
+}
+
+.page1-content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.control-label {
+    padding-right: 20%;
+}
+.outline-btn {
+  z-index: 2;
+  margin: 0 auto;
+  text-align: center;
+  color: #FFF;
+  background-color: orange;
+  height: 25px;
+  width: 200px;
+  padding: 0 20px;
+  line-height: 25px;
+  border: #FFF 1px solid;
+  border-radius: 50px;
+  transition: background-color 0.25s, transform 0.5s;
+  -webkit-transition: background-color 0.25s, transform 0.5s;
+  cursor: pointer;
+}
+
+.delete {
+  z-index: 2;
+  margin: 0 auto;
+  text-align: center;
+  color: #FFF;
+  height: 25px;
+  width: 200px;
+  padding: 0 20px;
+  line-height: 25px;
+  border: #FFF 1px solid;
+  border-radius: 50px;
+  transition: background-color 0.25s, transform 0.5s;
+  -webkit-transition: background-color 0.25s, transform 0.5s;
+  cursor: pointer;
+  background-color: #FF685B;
+}
+
+.see_if_can_eat {
+  z-index: 3;
+  position: absolute;
+  left:35%;
+  top: 250px;
+  align-self: center;
+  width: 204px;
+  height: 30px;
+}
+
+
